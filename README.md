@@ -41,6 +41,42 @@ La tecnología aporta valor cuando fortalece el sistema.
 
 No reemplaza el pensamiento de calidad, el conocimiento del proceso ni la responsabilidad técnica.
 
+## Arquitectura conceptual
+
+El toolkit conecta métodos clásicos de calidad con datos operativos y decisiones prácticas.
+
+```mermaid
+flowchart TD
+    A[Datos operativos] --> B[Preparación y validación]
+    B --> C[Método de calidad]
+    C --> D[Análisis técnico]
+    D --> E[Visualización y resultados]
+    E --> F[Interpretación en contexto]
+    F --> G[Decisión operativa]
+    G --> H[Acción de mejora]
+    H --> I[Seguimiento y control]
+
+    subgraph Métodos incluidos
+        C1[SPC]
+        C2[Capacidad de proceso]
+        C3[Gage R&R / MSA]
+        C4[AQL y muestreo]
+        C5[FMEA / AMEF]
+        C6[DOE]
+        C7[Causa raíz]
+    end
+
+    C1 -.-> C
+    C2 -.-> C
+    C3 -.-> C
+    C4 -.-> C
+    C5 -.-> C
+    C6 -.-> C
+    C7 -.-> C
+```
+
+La intención es reducir la distancia entre tener datos, aplicar un método y tomar una decisión útil.
+
 ## Mapa de repositorios
 
 | Área | Repositorio | Propósito |
@@ -53,6 +89,43 @@ No reemplaza el pensamiento de calidad, el conocimiento del proceso ni la respon
 | Diseño de experimentos | [doe](https://github.com/fjgonzalezmgt/doe) | Herramientas y flujos relacionados con DOE para mejora de procesos y análisis experimental. |
 | Análisis de riesgo | [fmea](https://github.com/fjgonzalezmgt/fmea) | Herramientas relacionadas con AMEF/FMEA y priorización de riesgos para calidad y mejora operacional. |
 | Causa raíz | [ishikawa](https://github.com/fjgonzalezmgt/ishikawa) | Herramientas relacionadas con análisis Ishikawa / causa-efecto para solución estructurada de problemas. |
+
+## Relación entre herramientas
+
+Cada herramienta atiende una parte distinta del sistema de calidad y mejora.
+
+```mermaid
+flowchart LR
+    A[Problema operativo] --> B{Tipo de pregunta}
+
+    B -->|¿El proceso es estable?| C[spc]
+    B -->|¿El proceso cumple especificación?| D[capability]
+    B -->|¿El sistema de medición es confiable?| E[gage_rr]
+    B -->|¿Cómo inspeccionar o muestrear?| F[AQLSchemesCust / muestreo]
+    B -->|¿Dónde está el riesgo?| G[fmea]
+    B -->|¿Qué factores influyen?| H[doe]
+    B -->|¿Qué causas explican el problema?| I[ishikawa]
+
+    C --> J[Decisión de control]
+    D --> K[Decisión de capacidad]
+    E --> L[Decisión sobre medición]
+    F --> M[Decisión de inspección]
+    G --> N[Decisión de priorización]
+    H --> O[Decisión experimental]
+    I --> P[Decisión de causa raíz]
+
+    J --> Q[Mejora operativa]
+    K --> Q
+    L --> Q
+    M --> Q
+    N --> Q
+    O --> Q
+    P --> Q
+```
+
+El objetivo no es usar todas las herramientas en todos los casos.
+
+El objetivo es elegir la herramienta correcta según la pregunta operativa.
 
 ## Líneas principales del toolkit
 
@@ -164,6 +237,40 @@ Casos de uso típicos:
 - experimentación en proyectos de mejora;
 - aprendizaje a partir de cambios controlados en el proceso.
 
+## Flujo de uso recomendado
+
+Un flujo típico dentro del toolkit puede verse así:
+
+```mermaid
+flowchart TD
+    A[Definir problema operativo] --> B[Identificar dato disponible]
+    B --> C[Validar estructura y calidad del dato]
+    C --> D{Pregunta técnica principal}
+
+    D -->|Estabilidad| E[SPC]
+    D -->|Capacidad| F[Capability]
+    D -->|Medición| G[Gage R&R]
+    D -->|Inspección| H[AQL / muestreo]
+    D -->|Riesgo| I[FMEA]
+    D -->|Experimentación| J[DOE]
+    D -->|Causa raíz| K[Ishikawa]
+
+    E --> L[Revisar resultados]
+    F --> L
+    G --> L
+    H --> L
+    I --> L
+    J --> L
+    K --> L
+
+    L --> M[Interpretar en contexto operativo]
+    M --> N[Definir acción]
+    N --> O[Documentar decisión]
+    O --> P[Seguimiento]
+```
+
+El valor aparece cuando el análisis cambia una decisión, una rutina de control o una acción de mejora.
+
 ## Cómo deberían usarse estas herramientas
 
 Estos repositorios no buscan reemplazar al profesional de calidad, al dueño del proceso ni el criterio estadístico.
@@ -229,6 +336,31 @@ El toolkit refleja una visión práctica de Quality Analytics:
 
 > Mejores decisiones de calidad requieren más que datos. Requieren método, contexto, validación y seguimiento operativo.
 
+## Relación con otros hubs
+
+Quality Analytics Toolkit es la línea más directamente conectada con métodos de calidad y mejora operacional.
+
+Se complementa con otros hubs del ecosistema:
+
+```mermaid
+flowchart TD
+    A[Quality Analytics Toolkit] --> B[Métodos y análisis técnico]
+    C[QMS Intelligence / AI for Quality] --> D[Evidencia documental y QMS]
+    E[Operational Analytics & Automation] --> F[Entregables y automatización]
+    G[Learning / Data Science Portfolio] --> H[Aprendizaje analítico y práctica técnica]
+
+    B --> I[Decisiones operativas]
+    D --> I
+    F --> I
+    H --> I
+
+    I --> J[Quality Analytics]
+```
+
+La función del toolkit es convertir métodos de calidad en herramientas aplicables.
+
+Los demás hubs complementan esa función con documentación, automatización, aprendizaje y comunicación.
+
 ## Orden sugerido de revisión
 
 Si estás revisando este toolkit como portafolio profesional, empieza por:
@@ -275,6 +407,9 @@ Focos principales:
 
 ## Enlaces relacionados
 
-- Perfil de GitHub: [fjgonzalezmgt](https://github.com/fjgonzalezmgt)
-- Quality Analytics: [qualityanalytics.net](https://qualityanalytics.net)
-- LinkedIn: [Francisco González](https://www.linkedin.com/in/franciscogonzalez)alytics-Toolkit
+- [Perfil de GitHub](https://github.com/fjgonzalezmgt)
+- [QMS Intelligence / AI for Quality](https://github.com/fjgonzalezmgt/QMS-Intelligence-AI-for-Quality)
+- [Operational Analytics & Automation](https://github.com/fjgonzalezmgt/Operational-Analytics-Automation)
+- [Learning / Data Science Portfolio](https://github.com/fjgonzalezmgt/Learning-Data-Science-Portfolio)
+- [Quality Analytics](https://qualityanalytics.net)
+- [LinkedIn](https://www.linkedin.com/in/franciscogonzalez)
